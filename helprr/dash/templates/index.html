@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+
+<div style="max-width: 1150px; margin-right: auto; margin-left: auto; padding-right: 16px !important; padding-left: 16px !important;">
+    <div class="text-center">
+        <br>
+        <br>
+        <h1 style="font-weight: 1000; font-size: 55px;">Home</h1>
+        <p style="color: #586069; font-size: 20px;">Welcome to Streakrr</p>
+        <br>
+        <br>
+    </div>
+</div>
+
+<div class="app">
+    <div class="row">
+
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+            <div class="card m-4 shadow-sm">
+                <div class="card-body text-center">
+                    <h1 class="card-title" style="font-weight: 1000;">Hi-Scores</h1>
+                    <hr>
+                    {% for profile in profiles reversed%}
+                    <h5 class="card-title" style="font-weight: 1000;color: #333 !important;">{{ profile.user }}:
+                        {{ profile.github_streak }} 🔥</h5>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+            <div class="card m-4 shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title" style="font-weight: 1000;">Dashboard</h5>
+                    <a href="{% url 'dash' %}">Go</a>
+                </div>
+
+            </div>
+            <div class="card m-4 shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title" style="font-weight: 1000;">Profile</h5>
+                    <a href="{% url 'profile' %}">Go</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div>
+    <footer class="text-muted">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Back to top</a>
+            </p>
+
+            <p>Thanks for visiting Helprr</p>
+        </div>
+    </footer>
+</div>
+{% endblock %}

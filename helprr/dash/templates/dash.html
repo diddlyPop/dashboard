@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+
+<div style="max-width: 1150px; margin-right: auto; margin-left: auto; padding-right: 16px !important; padding-left: 16px !important;">
+    <div class="text-center">
+        <br>
+        <br>
+        <h1 style="font-weight: 1000; font-size: 55px;">Dash</h1>
+        <p style="color: #586069; font-size: 20px;">Your Dashboard</p>
+        <br>
+        <br>
+    </div>
+</div>
+<div class="app">
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-2">
+            <div class="card mt-4 mb-4 shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title" style="font-weight: 1000;">
+                        Keep on top of your Github commits through this daily streak tracker.
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card mt-4 mb-4 shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title" style="font-weight: 1000;">Hello, '{{ user.get_username }}'</h5>
+                    <hr>
+                    <h5 class="card-title" style="font-weight: 1000;">Your current Github username is '{{ g_user }}'</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card mt-4 mb-4 shadow-sm">
+                <div class="card-body text-center">
+                    <h3 class="card-title" style="font-weight: 1000;">Github Streaks: {{ streaks }}</h3>
+                    <h1>
+                        {% for i in range %}
+                        🔥
+                        {% endfor %}
+                    </h1>
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div class="d-flex justify-content-center mt-3 ">
+                            <input class="btn btn-warning" type="submit" value="Streak">
+                        </div>
+                    </form>
+                    {% if messages %}
+
+                    {% for message in messages %}
+                    <br>
+                    <h5 class="card-title" style="font-weight: 1000;">{{ message }}</h5>
+                    {% endfor %}
+                    {% else %}
+                    <br>
+                    <h5 class="card-title" style="font-weight: 1000;">Update your streak after you do your daily
+                        commit.</h5>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-4 shadow-sm" style="background-color: {{ completed_streak_today }}">
+                <div class="card-body text-center">
+                    <h3 class="card-title" style="font-weight: 1000;">Github Streaks: {{ streaks }}</h3>
+                    <h1>
+                        {% for i in range %}
+                        🔥
+                        {% endfor %}
+                    </h1>
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div class="d-flex justify-content-center mt-3 ">
+                            <input class="btn btn-warning" type="submit" name="streak-update-form" value="Streak">
+                        </div>
+                    </form>
+                    {% if messages %}
+
+                    {% for message in messages %}
+                    <br>
+                    <h5 class="card-title" style="font-weight: 1000;">{{ message }}</h5>
+                    {% endfor %}
+                    {% else %}
+                    <br>
+                    <h5 class="card-title" style="font-weight: 1000;">Update your streak after you do your daily
+                        commit.</h5>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+</div>
+</div>
+
+<div>
+    <footer class="text-muted">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Back to top</a>
+            </p>
+
+            <p>Thanks for visiting Helprr</p>
+        </div>
+    </footer>
+</div>
+{% endblock %}
