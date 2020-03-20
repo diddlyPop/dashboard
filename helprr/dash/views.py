@@ -47,6 +47,7 @@ def dash(request):
             result, message = update_streaks(github_user, last_modified)
             # We will update the streak
             if result:
+                streak_color = "green"
                 # Logic for if user missed a streak
                 if message == "Reset":
                     profile.github_streak = 1
