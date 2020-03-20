@@ -1,25 +1,25 @@
-#Helprr
+# Helprr
 
-###Install
+### Install
 ```
 TODO
 
 ```
 
-###Run
+### Run
 ```
 TODO
 
 ```
 
-###Current requirements
+### Current requirements
 
-#####Main page
+##### Main page
 - Visitors shall see the current hi-scores list (probably max of 10)
 - Visitors can see information about the service
 
 
-#####User dash page
+##### User dash page
 - User shall see multiple containerized widgets on the screen
     - Streakrr widget
         - For displaying and maintaining your github streak
@@ -31,14 +31,14 @@ TODO
         - User can mark off completed tasks
 - Users screen shall reset when admin presses reset results
 
-#####User profile page
+##### User profile page
 - Displays all user profile information
 - Allows user to change various profile fields via forms
 - Displays users specialization and other stats
     - Will have multiple specializations with different levels to complete
     - Tasked will be refreshed daily according to currently set specialization
 
-#####Admin page
+##### Admin page
 - For superusers
 
 
