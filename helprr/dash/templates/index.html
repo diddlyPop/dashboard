@@ -21,10 +21,10 @@
         <div class="col-md-6">
             <div class="card m-4 shadow-sm">
                 <div class="card-body text-center">
-                    <h1 class="card-title" style="font-weight: 1000;">Hi-Scores</h1>
+                    <h1 class="card-title">Hi-Scores</h1>
                     <hr>
                     {% for profile in profiles reversed%}
-                    <h5 class="card-title" style="font-weight: 1000;color: #333 !important;">{{ profile.user }}:
+                    <h5 class="card-title" style="color: #333 !important;">{{ profile.user }}:
                         {{ profile.github_streak }} 🔥</h5>
                     {% endfor %}
                 </div>
@@ -41,14 +41,14 @@
         <div class="col-md-6">
             <div class="card m-4 shadow-sm">
                 <div class="card-body text-center">
-                    <h5 class="card-title" style="font-weight: 1000;">Dashboard</h5>
+                    <h5 class="card-title">Dashboard</h5>
                     <a href="{% url 'dash' %}">Go</a>
                 </div>
 
             </div>
             <div class="card m-4 shadow-sm">
                 <div class="card-body text-center">
-                    <h5 class="card-title" style="font-weight: 1000;">Profile</h5>
+                    <h5 class="card-title">Profile</h5>
                     <a href="{% url 'profile' %}">Go</a>
                 </div>
             </div>
