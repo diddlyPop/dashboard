@@ -54,9 +54,20 @@ def user_made_commit(github_user, today):
     """
     verified_commit = False
     print(today)
-    url = f'https://api.github.com/search/commits?q=author:{github_user}+since={today}'
+    dates = []
+    url = f'https://api.github.com/search/commits?q=author:{github_user}+author-date:{today}'
     result = requests.get(url, headers={'Accept': 'application/vnd.github.cloak-preview'})
     if result.json()['total_count'] > 0:
-        print(result.json())
-        verified_commit = True
+        try:
+            for item in result.json()['items']:
+                commit_date_str = item['commit']['author']['date'][:10]
+                commit_date = datetime.datetime.strptime(commit_date_str, '%Y-%m-%d')
+                commit_date = datetime.datetime.date(commit_date)
+                dates.append(commit_date)
+                print(commit_date)
+            if today in dates:
+                verified_commit = True
+                print("verified commit")
+        except Exception as e:
+            print(e)
     return verified_commit
