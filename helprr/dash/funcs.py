@@ -14,11 +14,12 @@ def update_streaks(github_user, last_modified):
     message = "Empty message"
     today = datetime.date.today()
     # If there is a problem with the github username
-    if github_user is None or github_user is " ":
+    if github_user is None or github_user == " " or len(github_user) < 3:
         message = "Update your github username at the profile page."
     # If user made a commit today
     elif user_made_commit(github_user, today):
         # Get yesterdays date
+        print(f"Apparently {github_user} made a commit on {today}")
         yesterday = today - datetime.timedelta(days=1)
         # If user hasn't started a streak
         if last_modified is None:
@@ -52,8 +53,10 @@ def user_made_commit(github_user, today):
     :return:
     """
     verified_commit = False
-    url = f'https://api.github.com/search/commits?q=author:{github_user}+author-date:{today}'
+    print(today)
+    url = f'https://api.github.com/search/commits?q=author:{github_user}+since={today}'
     result = requests.get(url, headers={'Accept': 'application/vnd.github.cloak-preview'})
     if result.json()['total_count'] > 0:
+        print(result.json())
         verified_commit = True
     return verified_commit
