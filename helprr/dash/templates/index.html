@@ -1,74 +1,66 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_content %}
-
-<div style="max-width: 1150px; margin-right: auto; margin-left: auto; padding-right: 16px !important; padding-left: 16px !important;">
-    <div class="text-center">
-        <br>
-        <br>
-        <h1 style="font-weight: 1000; font-size: 55px;">Home</h1>
-        <p style="color: #586069; font-size: 20px;">Welcome to Streakrr</p>
-        <br>
-        <br>
-    </div>
-</div>
-
-<div class="app">
-    <div class="row">
-
-        <div class="col-md-3">
-        </div>
-        <div class="col-md-6">
-            <div class="card m-4 shadow-sm">
-                <div class="card-body text-center">
-                    <h1 class="card-title">Hi-Scores</h1>
-                    <hr>
-                    {% for profile in profiles reversed%}
-                    <h5 class="card-title" style="color: #333 !important;">{{ profile.user }}:
-                        {{ profile.github_streak }} 🔥</h5>
-                    {% endfor %}
-                </div>
-
-            </div>
-        </div>
-        <div class="col-md-3">
+<div style="height:104vh;">
+    <div style="max-width: 1150px; margin-right: auto; margin-left: auto; padding-right: 16px !important; padding-left: 16px !important;">
+        <div class="text-center">
+            <br>
+            <br>
+            <h1 style="font-weight: 1000; font-size: 55px;">Home</h1>
+            <p style="color: #586069; font-size: 20px;">Helprr</p>
+            <br>
+            <br>
         </div>
     </div>
-    <div class="row">
 
-        <div class="col-md-3">
-        </div>
-        <div class="col-md-6">
-            <div class="card m-4 shadow-sm">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Dashboard</h5>
-                    <a href="{% url 'dash' %}">Go</a>
-                </div>
+    <div class="app">
+        <div class="row">
 
+            <div class="col-md-3">
             </div>
-            <div class="card m-4 shadow-sm">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Profile</h5>
-                    <a href="{% url 'profile' %}">Go</a>
+            <div class="col-md-6">
+                <div class="card m-4 shadow-sm">
+                    <div class="card-body text-center">
+                        <h1 class="card-title">Hi-Scores</h1>
+                        <hr>
+                        {% for profile in profiles reversed%}
+                        <h5 class="card-title" style="color: #333 !important;">{{ profile.user }}:
+                            {{ profile.github_streak }} 🔥</h5>
+                        {% endfor %}
+                    </div>
+
                 </div>
             </div>
             <div class="col-md-3">
-
-
             </div>
-
         </div>
     </div>
-</div>
-<div>
-    <footer class="text-muted">
-        <div class="container">
-            <p class="float-right">
-                <a href="#">Back to top</a>
-            </p>
-
-            <p>Thanks for visiting Helprr</p>
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+      <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+        <div class="my-3 py-3">
+          <h2 class="display-5">Profile</h2>
+          <p class="lead">Customize your way to learn.</p>
         </div>
+        <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 100px; border-radius: 8px 8px 0 0;"></div>
+      </div>
+      <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+        <div class="my-3 p-3">
+          <h2 class="display-5">Dashboard</h2>
+          <p class="lead">Keep up with daily tasks.</p>
+        </div>
+        <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 100px; border-radius: 8px 8px 0 0;"></div>
+      </div>
+    </div>
+
+
+</div>
+
+<div>
+    <footer class="blog-footer" style="">
+        <p>Helprr by Kyle Guss.</p>
+        <p>
+            <a href="#">Back to top</a>
+        </p>
     </footer>
 </div>
 {% endblock %}

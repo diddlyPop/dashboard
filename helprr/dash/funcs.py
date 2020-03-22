@@ -53,7 +53,6 @@ def user_made_commit(github_user, today):
     :return:
     """
     verified_commit = False
-    print(today)
     dates = []
     url = f'https://api.github.com/search/commits?q=author:{github_user}+author-date:{today}'
     result = requests.get(url, headers={'Accept': 'application/vnd.github.cloak-preview'})
@@ -64,10 +63,8 @@ def user_made_commit(github_user, today):
                 commit_date = datetime.datetime.strptime(commit_date_str, '%Y-%m-%d')
                 commit_date = datetime.datetime.date(commit_date)
                 dates.append(commit_date)
-                print(commit_date)
             if today in dates:
                 verified_commit = True
-                print("verified commit")
         except Exception as e:
             print(e)
     return verified_commit
